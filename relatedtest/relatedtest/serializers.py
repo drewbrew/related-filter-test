@@ -24,7 +24,7 @@ class ChapterSerializer(serializers.ModelSerializer):
     author = serializers.SerializerMethodField()
 
     def get_author(self, obj):
-        return AuthorSerializer(self.book.author)
+        return AuthorSerializer(obj.book.author)
 
     class Meta:
         model = models.Chapter
